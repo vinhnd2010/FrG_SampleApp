@@ -15,9 +15,8 @@ class CommentsController < ApplicationController
 	end
 
 	def destroy
-		binding.pry
 		Comment.find(params[:id]).destroy
-		render json: {status: :deleted}
+		# render json: {status: :deleted}
 		respond_to do |format|
 			format.html {redirect_to(request.referrer || root_url, notice: "Comment deleted") }
 			format.js
