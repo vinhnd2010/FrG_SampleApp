@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
 	  	if @comment.save
 	  		# redirect_to root_url #not js
 		  	respond_to do |format|
-		      format.html { redirect_to :back, notice: "Comment created" }
+		      format.html { redirect_to :back}
 		      format.js
 	    	end
 	    end
@@ -19,7 +19,7 @@ class CommentsController < ApplicationController
 		Comment.find(params[:id]).destroy
 		# redirect_to request.referrer || root_url #not js
 		respond_to do |format|
-			format.html {redirect_to(request.referrer || root_url, notice: "Comment deleted") }
+			format.html {redirect_to(request.referrer || root_url)}
 			format.js
 		end
 	end

@@ -12,8 +12,8 @@
 		</section>
 	</aside>
 	<div class="col-md-8">
+		<%= render 'follow_form' if logged_in? %>
 		<% if @user.entries.any? %>
-			<%= render 'follow_form' if logged_in? %>
 			<h3> Entries (<%= @user.entries.count %>) </h3>
 			<ol class="entries">
 				<%= render @entries %>
