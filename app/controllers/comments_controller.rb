@@ -7,6 +7,7 @@ class CommentsController < ApplicationController
 	  	@comment = @entry.comments.build(comment_params)
 	  	@comment.user = current_user
 	  	if @comment.save
+	  		# redirect_to root_url #not js
 		  	respond_to do |format|
 		      format.html { redirect_to :back, notice: "Comment created" }
 		      format.js
@@ -16,7 +17,7 @@ class CommentsController < ApplicationController
 
 	def destroy
 		Comment.find(params[:id]).destroy
-		# render json: {status: :deleted}
+		# redirect_to request.referrer || root_url #not js
 		respond_to do |format|
 			format.html {redirect_to(request.referrer || root_url, notice: "Comment deleted") }
 			format.js

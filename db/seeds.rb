@@ -1,10 +1,15 @@
 User.create!(name:  "ToanLH",
              email: "toan@gmail.com",
              password:              "1",
-             password_confirmation: "1")
-             # admin: true,
+             password_confirmation: "1",
+             admin: true)
              # activated: true,
              # activated_at: Time.zone.now)
+User.create!(name:  "ToanLH2",
+             email: "toan2@gmail.com",
+             password:              "1",
+             password_confirmation: "1",
+             admin: true)
 
 99.times do |n|
   # binding.pry

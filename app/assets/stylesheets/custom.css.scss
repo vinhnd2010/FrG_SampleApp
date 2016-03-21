@@ -12,6 +12,13 @@ $gray-medium-light: #eaeaea;
   box-sizing:         border-box;
 }
 
+/* submit */
+.submit {
+  @extend .btn;
+  @extend .btn-primary;
+  width: 40px;
+} 
+
 /* universal */
 
 body {

@@ -5,8 +5,10 @@
 	<span class="content"> <%= entry.content %> </span>
 	<span class="timestamp">
 		Posted <%= time_ago_in_words(entry.created_at) %> ago
-		<%= link_to "delete", entry, method: :delete,
+    <% if current_user?(entry.user) %>
+		  <%= link_to "delete", entry, method: :delete,
     									data: {confirm: "You sure?"} %>
+    <% end %>
 	</span>
 
 	<ul id = "comments_<%=entry.id%>">
@@ -22,6 +24,7 @@
       <p>
         <br />
         <%= f.text_field :content, placeholder: "Comment ...", class: 'comment_content' %>
+        <%= f.submit "Send", class: "submit" %>
       </p>
       
     <% end %>
